@@ -3,18 +3,10 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const queries = require('./queries')
+const loadData = require('./loadData')
 
 async function main() {
-	const data = {
-		name: "Alice",
-		email: "alice2@prisma.io",
-		posts: {
-			create: { title: "Hello World" },
-		},
-		profile: {
-			create: { bio: "I like turtles" },
-		},
-	}
+	const data = loadData.userData()
 	await queries.createUser(prisma, data)
 
   const allUsers = await queries.getAllUsers(prisma)
