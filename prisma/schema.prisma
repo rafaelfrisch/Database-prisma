@@ -65,8 +65,8 @@ model Customer {
 model Order_item {
   order_item_id        Int @id
   shipping_limit_date  DateTime?
-  price                Int?
-  freight_value        Int?
+  price                Float?
+  freight_value        Float?
   order_item_quantity  Int?
 
   order Order @relation(fields: [order_id], references: [order_id])
@@ -88,13 +88,13 @@ model Seller {
 model Product {
   product_id                  String @unique
   product_category_name       String?
-  product_name_length         Float?
-  product_description_length  Float?
-  product_photos_qty          Float?
-  product_weight_g            Float?
-  product_length_cm           Float?
-  product_height_cm           Float?
-  product_width_cm            Float?
+  product_name_length         Int?
+  product_description_length  Int?
+  product_photos_qty          Int?
+  product_weight_g            Int?
+  product_length_cm           Int?
+  product_height_cm           Int?
+  product_width_cm            Int?
 
   order_item Order_item?
 }
