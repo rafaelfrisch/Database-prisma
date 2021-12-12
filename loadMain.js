@@ -1,12 +1,7 @@
-const queries = require('./queries')
-const loadData = require('./loadData')
+const makeQuery = require('./makeQuery')
 
 const loadMain = async (prisma) => {
-    const data = loadData.multipleUsersData()
-    await queries.createManyUsers(prisma, data)
-    
-    const allUsers = await queries.getAllUsers(prisma)
-    console.dir(allUsers, { depth: null });
+    await makeQuery(prisma)
 }
 
 module.exports = loadMain
