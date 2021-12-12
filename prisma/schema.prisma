@@ -36,3 +36,76 @@ model User {
   posts   Post[]
   profile Profile?
 }
+
+model Order {
+  order_id                      String @unique
+  order_status                  String?
+  order_purchase_timestamp      DateTime?
+  order_approved_at             DateTime?
+  order_delivered_carrier_date  DateTime?
+  order_delivered_customer_date DateTime?
+  order_estimated_delivery_date DateTime?
+
+  customer Customer @relation(fields: [customer_id], references: [customer_id])
+  customer_id                   String @unique
+
+  order_items Order_item[]
+  order_payment Order_payment?
+}
+
+model Customer {
+  customer_id         String @unique
+  customer_unique_id  String @unique
+  customer_city       String?
+  customer_state      String?
+
+  order Order?
+}
+
+model Order_item {
+  order_item_id        Int @id
+  shipping_limit_date  DateTime?
+  price                Int?
+  freight_value        Int?
+  order_item_quantity  Int?
+
+  order Order @relation(fields: [order_id], references: [order_id])
+  order_id String @unique
+  product Product @relation(fields: [product_id], references: [product_id])
+  product_id String @unique
+  seller Seller @relation(fields: [seller_id], references: [seller_id])
+  seller_id String @unique
+}
+
+model Seller {
+  seller_id     String @unique
+  seller_city   String?
+  seller_state  String?
+
+  order_item Order_item?
+}
+
+model Product {
+  product_id                  String @unique
+  product_category_name       String?
+  product_name_length         Float?
+  product_description_length  Float?
+  product_photos_qty          Float?
+  product_weight_g            Float?
+  product_length_cm           Float?
+  product_height_cm           Float?
+  product_width_cm            Float?
+
+  order_item Order_item?
+}
+
+model Order_payment {
+  payment_id            Int @id
+  payment_sequential    Int?
+  payment_type          String?
+  payment_installments  Int?
+  payment_value         Float?
+
+  order Order           @relation(fields: [order_id], references: [order_id])
+  order_id String       @unique
+}
