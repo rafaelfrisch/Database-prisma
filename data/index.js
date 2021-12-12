@@ -1,3 +1,6 @@
-const jsonTeste = require('./sellers.json')
+// const json = require('./orders.json')
+const fs = require('fs')
+const fixJson = require('./fixJson')
 
-console.log(jsonTeste)
+const newData = fixJson(json)
+// fs.writeFileSync('./data/orders.json', JSON.stringify(newData))
