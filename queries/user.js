@@ -4,6 +4,14 @@ const createUser = async (prisma, data) => {
   });
 };
 
+const createManyUsers = async (prisma, data) => {
+	console.log(data)
+	await prisma.user.createMany({
+    data,
+		skipDuplicates: true,
+  });
+}
+
 const getAllUsers = async (prisma) => {
   const allUsers = await prisma.user.findMany({
     include: {
@@ -16,5 +24,6 @@ const getAllUsers = async (prisma) => {
 
 module.exports = {
 	createUser,
+	createManyUsers,
 	getAllUsers
 }

@@ -9,8 +9,24 @@ const userData = () => {
       create: { bio: "I like turtles" },
     },
   };
-  return data
+  return data;
 };
+
+const multipleUsersData = () => {
+  const data = [
+    {
+      name: "Rafael",
+      email: "rafael@prisma.io",
+    },
+    {
+      name: "Francisco",
+      email: "francisco@prisma.io",
+    },
+  ];
+  return data;
+};
+
 module.exports = {
-    userData
-}
+  userData,
+  multipleUsersData
+};
