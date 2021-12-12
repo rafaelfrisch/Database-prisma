@@ -2,15 +2,11 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-const queries = require('./queries')
-const loadData = require('./loadData')
+
+const loadMain = require('./loadMain')
 
 async function main() {
-	const data = loadData.multipleUsersData()
-	await queries.createManyUsers(prisma, data)
-
-  const allUsers = await queries.getAllUsers(prisma)
-  console.dir(allUsers, { depth: null });
+  loadMain(prisma)
 }
 
 main()
