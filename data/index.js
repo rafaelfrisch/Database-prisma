@@ -1,4 +1,3 @@
-const jsonTeste = require('./teste.json')
+const jsonTeste = require('./sellers.json')
 
-console.log(typeof(jsonTeste[0]))
-
+console.log(jsonTeste)
