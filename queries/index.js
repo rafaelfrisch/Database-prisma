@@ -4,6 +4,7 @@ const productQueries = require('./products')
 const customerQueries = require('./customer')
 const orderQueries = require('./orders')
 const orderItemsQueries = require('./orderItem')
+const orderPaymentsQueries = require('./payments')
 
 module.exports = {
     ...userQueries,
@@ -11,5 +12,6 @@ module.exports = {
     ...productQueries,
     ...customerQueries,
     ...orderQueries,
-    ...orderItemsQueries
+    ...orderItemsQueries,
+    ...orderPaymentsQueries
 }

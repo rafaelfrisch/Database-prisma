@@ -45,7 +45,7 @@ model Order {
   customer_id                   String         @unique
   customer                      Customer       @relation(fields: [customer_id], references: [customer_id])
   order_items                   Order_item[]
-  order_payment                 Order_payment?
+  order_payment                 Order_payment[]
 }
 
 model Customer {
@@ -96,6 +96,6 @@ model Order_payment {
   payment_type         String?
   payment_installments Int?
   payment_value        Float?
-  order_id             String  @unique
+  order_id             String  
   order                Order   @relation(fields: [order_id], references: [order_id])
 }

@@ -4,6 +4,7 @@ const productData = require('./products')
 const customersData = require('./customers')
 const ordersData = require('./orders')
 const orderItemsData = require('./orderItems')
+const orderPaymentsData = require('./payments')
 const splitData = require('./splitData')
 
 module.exports = {
@@ -13,5 +14,6 @@ module.exports = {
     ...splitData,
     ...customersData,
     ...ordersData,
-    ...orderItemsData
+    ...orderItemsData,
+    ...orderPaymentsData
 }
