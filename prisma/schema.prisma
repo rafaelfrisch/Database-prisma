@@ -55,7 +55,7 @@ model Order {
 
 model Customer {
   customer_id         String @unique
-  customer_unique_id  String @unique
+  customer_unique_id  String?
   customer_city       String?
   customer_state      String?
 
